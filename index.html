@@ -5,11 +5,70 @@
         <meta charset="utf-8">
         <title>shop</title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+        <script crossorigin src="js/react.development.js"></script>
+        <script crossorigin src="js/react-dom.development.js"></script>
+        <script crossorigin src="js/browser.min.js"></script>
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            html, body {
+                background: #f5f5f5;
+                font-family: PingFangSC-Regular;
+                font-size: 14px;
+            }
+            .title {
+                font-size: 15px;
+                line-height: 30px;
+                padding-left: 15px;
+                border-bottom: 1px solid #ececec;
+                background: #fff;
+            }
+            .list .item {
+                padding: 0 5px;
+                margin-bottom: 5px;
+            }
+            .item:first-child {
+                padding-top: 5px;
+            }
+        </style>
     </head>
     <body>
-        <main>
-            browse shop
-            my first shop
+        <main id="shop">
+
         </main>
+        <script type="text/babel">
+            const imgs = [
+                'img/h1.jpg',
+                'img/h2.jpg',
+                'img/h3.jpg',
+                'img/h4.jpg',
+                'img/h5.jpg'
+            ];
+
+            class Demo extends React.Component {
+                render() {
+                    return (
+                        <div>
+                            <div className="title">特卖场</div>
+                            <div className="list">
+                                {
+                                    imgs.map((item, index) => <div className="item" key={index}>
+                                        <div>{'海澜之家--'+(index+1)}</div>
+                                        <img src={item} alt="shop" />
+                                    </div>)
+                                }
+                            </div>
+                        </div>
+                    )
+                }
+            }
+
+            ReactDOM.render(
+                <Demo />,
+                document.getElementById('shop')
+            );
+        </script>
     </body>
 </html>
